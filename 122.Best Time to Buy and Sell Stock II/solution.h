@@ -5,6 +5,10 @@ class Solution
 public:
 	int maxProfit(std::vector<int>& prices)
 	{
+		if(prices.begin() == prices.end())
+		{
+			return 0;
+		}
 		int buy = prices[0];
 		int sell = prices[0];
 		int profit = 0;
@@ -24,3 +28,22 @@ public:
 		return profit;
 	}
 };
+/*
+int maxProfit(std::vector<int>& prices)
+{
+	if(prices.size() == 0)
+	{
+		return 0;
+	}
+	int profit = 0;
+	for(auto it = prices.begin() + 1; it != prices.end(); ++it)
+	{
+		if(*it > *(it - 1))
+		{
+			profit += (*it - *(it - 1));
+		}
+	}
+	return profit;
+}
+
+*/
